@@ -1,0 +1,21 @@
+{
+    "name": "storageAPI",
+    "version": 2,
+    "builds": [
+        {
+            "src": "*.js",
+            "use": "@now/node-server"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/storage/(.*)",
+            "dest": "/index.js"
+        }
+    ],
+    "env": {
+        "MONGODB_URI": "@server-uri",
+        "DB_USERNAME": "vinicastelani",
+        "DB_PASSWORD": "vini110297"
+    }
+}
