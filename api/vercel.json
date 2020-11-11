@@ -11,6 +11,10 @@
         {
             "src": "/storage/(.*)",
             "dest": "/index.js"
+        },
+          {
+            "src": "/user/(.*)",
+            "dest": "/index.js"
         }
     ],
     "env": {
