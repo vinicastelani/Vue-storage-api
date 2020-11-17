@@ -22,8 +22,8 @@ const ItemSchema = new mongoose.Schema({
     default: Date.now,
   },
   createdBy: {
-    type: String,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
 });
 
