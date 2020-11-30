@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const catalogItem = await CatalogItem.create(req.body);
+    await CatalogItem.create(req.body);
     return res.status(200).send({
       msg: { type: "success", data: "Item adicionado ao catálogo" },
     });
