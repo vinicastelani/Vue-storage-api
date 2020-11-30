@@ -5,10 +5,15 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   try {
     const item = await Item.create(req.body);
-    return res.status(200).send({ item });
-  } catch (err) {
+    return res
+      .status(200)
+      .send({ msg: { type: "success", data: "Item criado" } });
+  } catch (msg) {
     return res.status(400).send({
-      err: "Não foi possível adicionar o item ao banco",
+      msg: {
+        type: "error",
+        data: "Não foi possível adicionar o item ao banco",
+      },
     });
   }
 });
@@ -17,23 +22,29 @@ router.get("/", async (req, res) => {
   try {
     const item = await Item.find().populate("createdBy");
     return res.status(200).send({ item });
-  } catch (err) {
+  } catch (msg) {
     return res.status(400).send({
-      err: "Não foi possível retornar nenhum item do banco",
+      msg: {
+        type: "error",
+        data: "Nenhum item encontrado",
+      },
     });
   }
 });
 
 router.delete("/:id", async (req, res) => {
   try {
-    const item = await Item.findByIdAndDelete(req.params.id);
+    await Item.findByIdAndDelete(req.params.id);
     return res
       .status(200)
-      .send({ message: "Item removido do banco", log: item });
-  } catch (err) {
-    return res
-      .status(404)
-      .send({ err: "Não foi possível concluir a operação", log: req.body });
+      .send({ msg: { type: "sucess", data: "Item removido" } });
+  } catch (msg) {
+    return res.status(404).send({
+      msg: {
+        type: "error",
+        data: "Não foi possível concluir a operação",
+      },
+    });
   }
 });
 

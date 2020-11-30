@@ -1,11 +1,15 @@
 const mongoose = require("../database");
 
-const ItemSchema = new mongoose.Schema({
+const CatalogItemSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
   id: {
+    type: String,
+    default: Math.floor(Math.random() * 1000000000),
+  },
+  value: {
     type: String,
     required: true,
   },
@@ -15,14 +19,6 @@ const ItemSchema = new mongoose.Schema({
   },
   category: {
     type: Array,
-    required: true,
-  },
-  value: {
-    type: String,
-    required: true,
-  },
-  amount: {
-    type: Number,
     required: true,
   },
   createdAt: {
@@ -35,5 +31,5 @@ const ItemSchema = new mongoose.Schema({
   },
 });
 
-const Item = mongoose.model("Item", ItemSchema);
-module.exports = Item;
+const CatalogItem = mongoose.model("CatalogItem", CatalogItemSchema);
+module.exports = CatalogItem;
