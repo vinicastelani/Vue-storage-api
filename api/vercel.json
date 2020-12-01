@@ -15,18 +15,15 @@
         },
         {
             "src": "/storage/(.*)",
-            "dest": "/index.js",  
-            "headers":{"Access-Control-Allow-Origin": "*"}
+            "dest": "/index.js"          
         },
         {
             "src": "/catalog/(.*)",
-            "dest": "/index.js",  
-            "headers":{"Access-Control-Allow-Origin": "*"}
+            "dest": "/index.js"        
         },
         {
             "src": "/user/(.*)",
-            "dest": "/index.js",  
-            "headers":{"Access-Control-Allow-Origin": "*"}
+            "dest": "/index.js"       
         }
      
     ],
