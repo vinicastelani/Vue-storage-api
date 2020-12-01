@@ -42,8 +42,5 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
     "vercel": "^20.1.2"
-  },
-  "engines": {
-    "node": "^7.10.0"
   }
 }
