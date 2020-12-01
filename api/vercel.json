@@ -15,7 +15,6 @@
           {
             "src": "/user/(.*)",
             "dest": "/index.js"
-        }
         },
           {
             "src": "/catalog/(.*)",
