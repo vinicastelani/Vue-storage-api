@@ -17,12 +17,12 @@
             "dest": "/index.js"          
         },
         {
-            "src": "/catalog/(.*)",
-            "dest": "/index.js"        
-        },
-        {
             "src": "/user/(.*)",
             "dest": "/index.js"       
+        },
+        {
+            "src": "/catalog/(.*)",
+            "dest": "/index.js"        
         }
      
     ],
