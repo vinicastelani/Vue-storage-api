@@ -8,18 +8,7 @@
         }
     ],
     "routes": [
-        {
-            "src": "/storage/(.*)",
-            "dest": "/index.js"
-        },
-          {
-            "src": "/user/(.*)",
-            "dest": "/index.js"
-        },
-          {
-            "src": "/catalog/(.*)",
-            "dest": "/index.js"
-        }
+         {"src": "(.*)", "dest": "/index.js"}
     ],
     "env": {
         "MONGODB_URI": "@server-uri",
