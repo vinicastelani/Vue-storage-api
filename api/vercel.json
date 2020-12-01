@@ -9,16 +9,12 @@
     ],
     "routes": [
         {
-            "src": "(.*)",
-            "dest": "/index.js"
+            "src": "/user/(.*)",
+            "dest": "/index.js"       
         },
         {
             "src": "/storage/(.*)",
             "dest": "/index.js"          
-        },
-        {
-            "src": "/user/(.*)",
-            "dest": "/index.js"       
         },
         {
             "src": "/catalog/(.*)",
