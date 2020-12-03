@@ -34,7 +34,24 @@ router.get("/", async (req, res) => {
     });
   }
 });
-
+router.put("/:id", async (req, res) => {
+  try {
+    await CatalogItem.findByIdAndUpdate(req.params.id, req.body);
+    return res.status(200).send({
+      msg: {
+        type: "success",
+        data: "Item atualizado",
+      },
+    });
+  } catch (msg) {
+    return res.status(404).send({
+      msg: {
+        type: "error",
+        data: "Não foi possível atualizar este item",
+      },
+    });
+  }
+});
 router.delete("/:id", async (req, res) => {
   try {
     await CatalogItem.findByIdAndDelete(req.params.id);
