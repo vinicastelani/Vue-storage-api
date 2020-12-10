@@ -21,10 +21,6 @@ const ItemSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  total: {
-    type: Number,
-    default: this.amount * this.value,
-  },
   createdAt: {
     type: Date,
     default: Date.now,

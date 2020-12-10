@@ -7,10 +7,11 @@ router.post("/", async (req, res) => {
   const { amount } = req.body;
 
   try {
-    if (await Item.findOneAndUpdate({ _id }, { amount }))
+    if (await Item.findOneAndUpdate({ _id }, { $inc: { amount: amount } }))
       return res.status(200).send({
         msg: { type: "success", data: "Item já existe. Acrescentado ao total" },
       });
+
     await Item.create(req.body);
     return res.status(200).send({
       msg: { type: "success", data: "Item adicionado ao armazém" },
