@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
       msg: { type: "success", data: "Usuário criado" },
       log: user,
     });
-  } catch (msg) {
+  } catch (err) {
     return res.status(404).send({
       msg: { type: "error", data: "Não foi posssível criar o usuário" },
       log: req.body,
@@ -48,7 +48,7 @@ router.post("/login", async (req, res) => {
       log: user,
       token,
     });
-  } catch (msg) {
+  } catch (err) {
     return res.status(404).send({
       msg: { type: "error", data: "Não foi possível concluir a operação" },
     });

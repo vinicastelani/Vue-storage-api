@@ -4,16 +4,13 @@ const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const item = await Item.create(req.body);
-    return res
-      .status(200)
-      .send({ msg: { type: "success", data: "Item criado" } });
-  } catch (msg) {
+    await Item.create(req.body);
+    return res.status(200).send({
+      msg: { type: "success", data: "Item adicionado ao catálogo" },
+    });
+  } catch (err) {
     return res.status(400).send({
-      msg: {
-        type: "error",
-        data: "Não foi possível adicionar o item ao banco",
-      },
+      msg: { type: "error", data: "Não foi possível adicionar o item" },
     });
   }
 });
@@ -21,8 +18,14 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const item = await Item.find().populate("createdBy");
-    return res.status(200).send({ item });
-  } catch (msg) {
+    return res.status(200).send({
+      msg: {
+        type: "success",
+        data: "Itens armazenados estão disponíveis",
+      },
+      item,
+    });
+  } catch (err) {
     return res.status(400).send({
       msg: {
         type: "error",
@@ -37,8 +40,8 @@ router.delete("/:id", async (req, res) => {
     await Item.findByIdAndDelete(req.params.id);
     return res
       .status(200)
-      .send({ msg: { type: "sucess", data: "Item removido" } });
-  } catch (msg) {
+      .send({ msg: { type: "success", data: "Item removido" } });
+  } catch (err) {
     return res.status(404).send({
       msg: {
         type: "error",

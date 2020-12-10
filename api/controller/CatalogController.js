@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
       },
       catalog,
     });
-  } catch (msg) {
+  } catch (err) {
     return res.status(400).send({
       msg: {
         type: "error",
@@ -43,7 +43,7 @@ router.put("/:id", async (req, res) => {
         data: "Item atualizado",
       },
     });
-  } catch (msg) {
+  } catch (err) {
     return res.status(404).send({
       msg: {
         type: "error",
@@ -57,8 +57,8 @@ router.delete("/:id", async (req, res) => {
     await CatalogItem.findByIdAndDelete(req.params.id);
     return res
       .status(200)
-      .send({ msg: { type: "sucess", data: "Item removido" } });
-  } catch (msg) {
+      .send({ msg: { type: "success", data: "Item removido" } });
+  } catch (err) {
     return res.status(404).send({
       msg: {
         type: "error",
