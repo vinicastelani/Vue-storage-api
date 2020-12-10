@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const item = await Item.find().populate("createdBy");
+    const item = await Item.find().populate("createdBy").populate("addedBy");
     return res.status(200).send({
       msg: {
         type: "success",
