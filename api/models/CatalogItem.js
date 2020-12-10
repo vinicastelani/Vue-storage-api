@@ -5,10 +5,6 @@ const CatalogItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  id: {
-    type: String,
-    default: Math.floor(Math.random() * 1000000000),
-  },
   value: {
     type: String,
     required: true,

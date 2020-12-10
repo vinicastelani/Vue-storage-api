@@ -5,10 +5,6 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  id: {
-    type: String,
-    required: true,
-  },
   description: {
     type: String,
     required: true,
@@ -30,6 +26,10 @@ const ItemSchema = new mongoose.Schema({
     default: Date.now,
   },
   createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  addedBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },

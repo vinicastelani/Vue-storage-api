@@ -6,7 +6,7 @@ router.post("/", async (req, res) => {
   try {
     await Item.create(req.body);
     return res.status(200).send({
-      msg: { type: "success", data: "Item adicionado ao catálogo" },
+      msg: { type: "success", data: "Item adicionado ao armazém" },
     });
   } catch (err) {
     return res.status(400).send({
