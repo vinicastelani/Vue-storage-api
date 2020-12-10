@@ -3,7 +3,14 @@ const Item = require("../models/Item");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
+  const { _id } = req.body;
+  const { amount } = req.body;
+
   try {
+    if (await Item.findOneAndUpdate({ _id }, { amount }))
+      return res.status(200).send({
+        msg: { type: "success", data: "Item já existe. Acrescentado ao total" },
+      });
     await Item.create(req.body);
     return res.status(200).send({
       msg: { type: "success", data: "Item adicionado ao armazém" },
